@@ -6,7 +6,7 @@ Each class would be in a separate header file; they will all be contained in a f
 The main program (**main.cpp**) would be outside the **src** folder
 
 # UML Class Diagram
-![UML Class Diagram](CWA UML.jpg)
+![UML Class Diagram](https://github.com/MrRyt247/CWA-Calculator/blob/main/CWA%20UML.jpg)
 
 ## File Directory
 - src
