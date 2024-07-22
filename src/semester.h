@@ -1,32 +1,41 @@
-#include "course.h"
-#include <iomanip>
 #ifndef SEMESTER_H
-#define SEMESTER_H
-
+#define SEMESTER_H          // // defines semester header file if not defined
+#include "course.h"         // includes course header file
+#include <list>             //for list
+#include <iomanip>          // for setw manipulator
 using namespace std;
-int numOfCourses;
+
 class Semester {
     private:
         double swa;
-        short int totalCredits, weightedMarks;
-        Course *coursePtr;
+        short int numOfCourses, totalCredits, weightedMarks;
+        list<string> trailedCourses;        // list of trailed courses
+        Course *coursePtr;                  // a course pointer
     public:
-        Semester() : swa(0), totalCredits(0), weightedMarks(0), coursePtr(nullptr) {}
-        ~Semester() { delete[] coursePtr; }
+        Semester() : swa(0), totalCredits(0), weightedMarks(0), coursePtr(nullptr) {}       // constructor function
+        ~Semester() { delete[] coursePtr; }                 // destructor function
+
+        // setters
         void createCourse();
-        void showCourse();
         double calcSWA();
         int calcTotalCredits(Course* ptr);
         double calcWeightedMarks(Course* ptr);
+        void countTrails(Course* ptr);
+
+        // getters
         double getSWA();
         short getTotalCredits();
         short getWeightedMarks();
+        void showCourse();
+        list<string> getTrails();
 };
+
+// Function Defintions
 
 void Semester::showCourse() {
     for(int i=0; i<numOfCourses; i++) {
-        cout << setw(50) << left << (coursePtr+i)->getCourseName() << setw(10) << right << (coursePtr+i)->getCredit()
-             << setw(10) << (coursePtr+i)->getMarks() << setw(10) << (coursePtr+i)->getGrade() << endl;
+        cout << setw(50) << left << (coursePtr+i)->getCourseName() << setw(8) << right << (coursePtr+i)->getCredit()
+             << setw(12) << (coursePtr+i)->getMarks() << setw(10) << (coursePtr+i)->getGrade() << endl;
     }
 }
 
@@ -36,12 +45,13 @@ void Semester::createCourse() {
     coursePtr = new Course[numOfCourses];
 
     for(int i=0; i<numOfCourses; i++) {
-        cout << i+1; (coursePtr+i)->getDetails();
+        cout << i+1; (coursePtr+i)->setDetails();
         (coursePtr+i)->setGrade((coursePtr+i)->getMarks());
     }
 
     calcWeightedMarks(coursePtr);
     calcTotalCredits(coursePtr);
+    countTrails(coursePtr);
     calcSWA();
 }
 
@@ -57,6 +67,14 @@ int Semester::calcTotalCredits(Course* ptr) {
         totalCredits += (ptr+i)->getCredit();
     }
     return totalCredits;
+}
+
+void Semester::countTrails(Course* ptr) {
+    for(int i=0; i<numOfCourses; i++) {
+        if((ptr+i)->getGrade() == 'F') {
+            trailedCourses.push_back((ptr+i)->getCourseName());
+        }
+    }
 }
 
 double Semester::calcSWA() {
@@ -78,6 +96,10 @@ short Semester::getTotalCredits() {
 
 short Semester::getWeightedMarks() {
     return weightedMarks;
+}
+
+list<string> Semester::getTrails() {
+    return trailedCourses;
 }
 
 #endif
