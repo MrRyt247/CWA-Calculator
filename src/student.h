@@ -1,6 +1,6 @@
-#include "semester.h"
 #ifndef STUDENT_H
-#define STUDENT_H
+#define STUDENT_H           // defines student header file if not defined
+#include "semester.h"       // includes semester header file
 using namespace std;
 
 class Student {
@@ -9,17 +9,20 @@ class Student {
         int index;
         double cwa;
         short int numOfSem;
-        Semester* semesterPtr;
-        void showPosition(double cwa);
-        double calcCWA();
+        Semester* semesterPtr;              // semester pointer
+        void showPosition(double cwa);      // private member
+        double calcCWA();                   // functions
     public:
         Student(string n, int i) : name(n), index(i), cwa(0), numOfSem(0), semesterPtr(nullptr) {}
-        ~Student() {
-            delete[] semesterPtr;
-        }
+        ~Student() { delete[] semesterPtr; }
+
+        // setter
         void createSemester();
+
+        // getters
         void showCWA();
         void showSummary();
+        void showTrails();
 };
 
 void Student::createSemester() {
@@ -47,17 +50,20 @@ double Student::calcCWA() {
 void Student::showSummary() {
     cout << "Name: " << name << endl;
     cout << "Index no.: " << index << endl;
+    cout << string(80, '-') << endl;
     for(int i=0; i<numOfSem; i++) {
-        cout << "Semester " << i+1 << endl;
-        cout << setw(50) << left << "Name of Course" << setw(10) << right << "Credit" << setw(10) << "Marks" 
+        cout << "Year " << (i/2)+1 << '\t' << "Semester " << (i%2)+1 << endl;
+        cout << setw(50) << left << "Name of Course" << setw(8) << right << "Credit" << setw(12) << "Marks" 
              << setw(10) << "Grade" << endl;
         (semesterPtr+i)->showCourse();
-        cout << setw(59) << "Total Credits: " << (semesterPtr+i)->getTotalCredits() << setw(18)
-             << "Weighted Marks: " << (semesterPtr+i)->getWeightedMarks() << endl;
-        cout << setw(75) << "SWA: " << (semesterPtr+i)->getSWA() << endl;
+        cout << setw(55) << "Total Credits: " << setw(3) << (semesterPtr+i)->getTotalCredits() << setw(18)
+             << "Weighted Marks: " << setw(4) << (semesterPtr+i)->getWeightedMarks() << endl;
+        cout << setw(75) << "SWA: " << setw(4) << fixed << setprecision(2) << (semesterPtr+i)->getSWA() << endl;
     }
+    cout << string(80, '-') << endl;
     cout << "CWA: " << fixed << setprecision(2) << cwa << endl;
     showPosition(cwa);
+    showTrails();
 }
 
 void Student::showPosition(double cwa) {
@@ -70,6 +76,20 @@ void Student::showPosition(double cwa) {
 
 void Student::showCWA() {
     cout << "Cummulative Weighted Average(CWA): " << cwa << endl;
+}
+
+void Student::showTrails() {
+    for(int i=0; i<numOfSem; i++) {
+        cout << '<';
+        for (string trail: (semesterPtr+i)->getTrails()) {
+            cout << trail << ", ";
+        }
+        cout << "\b\b>" << endl;
+    }
+}
+
+void displayTitle() {
+    cout << string(32, '-') << " CWA Calculator " << string(32, '-') << endl;
 }
 
 #endif
