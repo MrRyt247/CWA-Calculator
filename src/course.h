@@ -1,5 +1,6 @@
 #ifndef COURSE_H
 #define COURSE_H                // defines course header file if not defined
+#include <windows.h>
 #include <iostream>
 #include <string>               // for string input
 #include <limits>               // for input stream
@@ -30,16 +31,16 @@ class Course {
         }
 
         // getters
-        string getCourseName() {
+        string getCourseName() const {
             return name;
         }
-        short getMarks() {
+        short getMarks() const {
             return marks;
         }
-        short getCredit() {
+        short getCredit() const {
             return credit;
         }
-        char getGrade() {
+        char getGrade() const {
             return grade;
         }
 };

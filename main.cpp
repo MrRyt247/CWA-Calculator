@@ -5,12 +5,12 @@ using namespace std;
 //  main program
 
 int main() {
-    displayTitle();
+    displayTitle();                 // shows the title of this program
     string name;
     int index;
 
     cout << "Enter your full name: ";
-    getline(cin, name);             // Get getline of input
+    getline(cin, name);             // Get the line of input
     cout << "Enter your index number: ";
     cin >> index;
 
@@ -18,9 +18,16 @@ int main() {
     obj.createSemester();
     obj.showSummary();
 
-    // Student obj1("Gyanewaa", 1837422);
-    // obj1.createSemester();
-    // obj1.showCWA();
+    char choice;
+    cout << endl << "Show trails? (y/n)" << endl;
+    cin >> choice;
+    switch (choice) {
+    case 'y':
+        obj.showTrails();
+        break;
+    default:
+        break;
+    }
 
     return 0;
 }
