@@ -23,21 +23,14 @@ class Semester {
         void countTrails(Course* ptr);
 
         // getters
-        double getSWA();
-        short getTotalCredits();
-        short getWeightedMarks();
-        void showCourse();
-        list<string> getTrails();
+        double getSWA() const;
+        short getTotalCredits() const;
+        short getWeightedMarks() const;
+        void showCourse() const;
+        list<string> getTrails() const;
 };
 
 // Function Defintions
-
-void Semester::showCourse() {
-    for(int i=0; i<numOfCourses; i++) {
-        cout << setw(50) << left << (coursePtr+i)->getCourseName() << setw(8) << right << (coursePtr+i)->getCredit()
-             << setw(12) << (coursePtr+i)->getMarks() << setw(10) << (coursePtr+i)->getGrade() << endl;
-    }
-}
 
 void Semester::createCourse() {
     cout << "Enter the number of courses for the semester: ";
@@ -86,19 +79,26 @@ double Semester::calcSWA() {
     return swa;
 }
 
-double Semester::getSWA() {
+void Semester::showCourse() const {
+    for(int i=0; i<numOfCourses; i++) {
+        cout << setw(50) << left << (coursePtr+i)->getCourseName() << setw(8) << right << (coursePtr+i)->getCredit()
+             << setw(12) << (coursePtr+i)->getMarks() << setw(10) << (coursePtr+i)->getGrade() << endl;
+    }
+}
+
+double Semester::getSWA() const {
     return swa;
 }
 
-short Semester::getTotalCredits() {
+short Semester::getTotalCredits() const {
     return totalCredits;
 }
 
-short Semester::getWeightedMarks() {
+short Semester::getWeightedMarks() const {
     return weightedMarks;
 }
 
-list<string> Semester::getTrails() {
+list<string> Semester::getTrails() const {
     return trailedCourses;
 }
 
