@@ -22,7 +22,7 @@ The main program (**main.cpp**) would be outside the **src** folder
 - ISAHAK ABDUL HAFIZ             1823122
 - 1821922
 - 1826322
-- 1821522
+- Edmund kwame Denteh 1821522
 - 1823022
 - John Papa Amonoo Appiah 1817522
 - 1819222
