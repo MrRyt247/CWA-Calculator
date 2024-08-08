@@ -25,6 +25,6 @@ The main program (**main.cpp**) would be outside the **src** folder
 - Edmund kwame Denteh 1821522
 - 1823022
 - John Papa Amonoo Appiah 1817522
-- 1819222
+- 1819222 Marcellinus Baapali Ayijunu
 
 Keep checking this repo for updates 😉
