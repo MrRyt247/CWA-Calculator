@@ -24,7 +24,7 @@ The main program (**main.cpp**) would be outside the **src** folder
 - 1826322
 - 1821522
 - 1823022
--John Papa Amonoo Appiah 1817522
+- John Papa Amonoo Appiah 1817522
 - 1819222
 
 Keep checking this repo for updates 😉
