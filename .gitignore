@@ -1,0 +1,5 @@
+# Executable
+src/main.exe
+
+# Config files
+.vscode/*
