@@ -18,13 +18,13 @@ The main program (**main.cpp**) would be outside the **src** folder
 ## Add your index numbers
 - 1828322
 - 1813122
-- 1818622
-- 1823122
+- Asiedu Wisdom 1818622
+- ISAHAK ABDUL HAFIZ             1823122
 - 1821922
 - 1826322
-- 1821522
+- Edmund kwame Denteh 1821522
 - 1823022
-- 1817522
-- 1819222
-
+- John Papa Amonoo Appiah 1817522
+- 1819222 Marcellinus Baapali Ayijunu
+- 1826722 Owusu Benikoff
 Keep checking this repo for updates 😉
