@@ -1,4 +1,4 @@
-u# CWA-Calculator
+# CWA-Calculator
 An academic group project to calculate the Cumulative Weighted Average of a student using the OOP paradigm 
 
 # Procedure
@@ -27,4 +27,5 @@ The main program (**main.cpp**) would be outside the **src** folder
 - John Papa Amonoo Appiah 1817522
 - 1819222 Marcellinus Baapali Ayijunu
 - 1826722 Owusu Benikoff
+
 Keep checking this repo for updates 😉
